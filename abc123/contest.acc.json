@@ -19,7 +19,11 @@
       "id": "abc123_b",
       "label": "B",
       "title": "Five Dishes",
-      "url": "https://atcoder.jp/contests/abc123/tasks/abc123_b"
+      "url": "https://atcoder.jp/contests/abc123/tasks/abc123_b",
+      "directory": {
+        "path": "b",
+        "testdir": "tests"
+      }
     },
     {
       "id": "abc123_c",
