@@ -19,7 +19,11 @@
       "id": "abc126_b",
       "label": "B",
       "title": "YYMM or MMYY",
-      "url": "https://atcoder.jp/contests/abc126/tasks/abc126_b"
+      "url": "https://atcoder.jp/contests/abc126/tasks/abc126_b",
+      "directory": {
+        "path": "b",
+        "testdir": "tests"
+      }
     },
     {
       "id": "abc126_c",
