@@ -1,0 +1,6 @@
+# test folder
+tests/
+test/
+
+# contest acc json
+contest.acc.json
