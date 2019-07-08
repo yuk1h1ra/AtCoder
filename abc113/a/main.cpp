@@ -3,6 +3,7 @@
 using namespace std;
 
 int main() {
-  int X, Y; cin >> X >> Y;
+  int X, Y;
+  cin >> X >> Y;
   cout << X + Y / 2 << endl;
 }
