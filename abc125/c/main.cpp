@@ -18,27 +18,26 @@ int main() {
   int N;
   cin >> N;
 
-  // わかりずらいので、indexを１スタートにする
-  vector<int> A(N + 2);
-  for (int i = 1; i <= N; i++) {
+  vector<int> A(N);
+  for (int i = 0; i < N; i++) {
     cin >> A[i];
   }
-  A[0] = A[1];
-  A[N + 1] = A[N];
 
-  vector<pair<int, int>> gcdA(N + 1);
-  for (int i = 1; i <= N; i++) {
-    gcdA[i].first = gcd(A[i], gcdA[i - 1].first);
-    gcdA[N + 1 - i].second = gcd(A[N + 1 - i], gcdA[N + 2 - i].second);
+  vector<int> left(N + 1, 0);
+  vector<int> right(N + 1, 0);
+  for (int i = 0; i < N; i++) {
+    left[i + 1] = gcd(left[i], A[i]);
   }
-  gcdA[0].first = gcdA[2].second;
-  gcdA[N + 1].second = gcdA[N - 1].first;
+  for (int i = N - 1; i >= 0; i--) {
+    right[i] = gcd(right[i + 1], A[i]);
+  }
 
   int maxGcd = 0;
-  for (int i = 1; i <= N; i++) {
-    int indexGcd = gcd(gcdA[i - 1].first, gcdA[i + 1].second);
-    maxGcd = max(indexGcd, maxGcd);
-  }
+  for (int i = 0; i < N; i++) {
+    int l = left[i];
+    int r = right[i + 1];
 
+    maxGcd = max(maxGcd, gcd(l, r));
+  }
   cout << maxGcd << endl;
 }
