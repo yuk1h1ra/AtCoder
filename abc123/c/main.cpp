@@ -9,4 +9,10 @@ typedef long long ll;
 int main() {
   ll N, A, B, C, D, E;
   cin >> N >> A >> B >> C >> D >> E;
+
+  ll minNum = min({A, B, C, D, E});
+  ll quotient = N / minNum;
+  if (N % minNum != 0)
+    quotient++;
+  cout << 4 + quotient << endl;
 }
