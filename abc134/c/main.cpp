@@ -9,22 +9,28 @@ typedef long long ll;
 int main() {
   int N;
   cin >> N;
-  vector<int> A(N + 1, 0);
-  for (int i = 1; i <= N; i++) {
+  vector<int> A(N);
+  int maxNum = 0;
+  rep(i, N) {
     cin >> A[i];
+    maxNum = max(A[i], maxNum);
   }
 
-  vector<int> left(N + 2, 0);
-  vector<int> right(N + 2, 0);
-
-  for (int i = 1; i <= N; i++) {
-    left[i] = max(A[i], left[i - 1]);
-  }
-  for (int i = N; i >= 0; i--) {
-    right[i] = max(A[i], right[i + 1]);
+  int countMax = count(A.begin(), A.end(), maxNum);
+  if (countMax != 1) {
+    rep(i, N) { cout << maxNum << endl; }
+    return 0;
   }
 
-  for (int i = 1; i <= N; i++) {
-    cout << max(left[i - 1], right[i + 1]) << endl;
+  int nextNum = 0;
+  rep(i, N) {
+    if (A[i] != maxNum)
+      nextNum = max(A[i], nextNum);
+  }
+  rep(i, N) {
+    if (A[i] == maxNum)
+      cout << nextNum << endl;
+    else
+      cout << maxNum << endl;
   }
 }
